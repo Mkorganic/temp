@@ -1,0 +1,96 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Fred's Fill-in Exercise (Reveal.js) with Scroll</title>
+
+  <!-- Reveal.js CSS (theme and core) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4/dist/reveal.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4/dist/theme/black.css" id="theme">
+
+  <style>
+    /* Force the page and the .slides container to fill the window
+       and allow vertical scrolling if content overflows. */
+    html, body {
+      margin: 0; 
+      padding: 0; 
+      height: 100%; 
+    }
+    .reveal {
+      height: 100%;
+    }
+    .reveal .slides {
+      height: 100%;
+      overflow-y: auto !important; /* Force vertical scroll if needed */
+    }
+
+    /* Style for fill-in blanks */
+    .blank {
+      color: black;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Reveal.js container -->
+<div class="reveal">
+  <div class="slides">
+    <!-- Just one slide -->
+    <section>
+      <pre style="white-space: pre-wrap; font-family: Arial, sans-serif; font-size: 1.1em;">
+B.  Help Fred write how he treats his brothers and sister.
+    עזרו לפרד לכתוב כיצד הוא מתייחס לאחיו ולאחיותיו.
+    ساعدوا فرد في كيفية معاملته لأخويه وأخته.
+
+    My <span class="blank" onclick="fillBlank(this, answers[0])">__________</span> is Fred. I am 15 years old. I have two <span class="blank" onclick="fillBlank(this, answers[1])">__________</span>
+    and <span class="blank" onclick="fillBlank(this, answers[2])">__________</span> sister. I am always nice to them.
+    I <span class="blank" onclick="fillBlank(this, answers[3])">________________________________________</span>.
+    I never <span class="blank" onclick="fillBlank(this, answers[4])">______________________________________</span>.
+    I always <span class="blank" onclick="fillBlank(this, answers[5])">______________________________________</span>.
+    I don't <span class="blank" onclick="fillBlank(this, answers[6])">______________________________________</span>.
+    I never <span class="blank" onclick="fillBlank(this, answers[7])">______________________________________</span>.
+    I often <span class="blank" onclick="fillBlank(this, answers[8])">______________________________________</span>.
+    I am always <span class="blank" onclick="fillBlank(this, answers[9])">___________________________________</span>.
+      </pre>
+    </section>
+  </div>
+</div>
+
+<!-- Reveal.js scripts -->
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@4/dist/reveal.js"></script>
+<script>
+  // Initialize Reveal (we omit scrollbar: true and rely on our custom CSS above)
+  Reveal.initialize({
+    hash: true,
+    slideNumber: false
+  });
+
+  // The answers for each blank, in order
+  const answers = [
+    "name",
+    "brothers",
+    "one",
+    "share my things with them",
+    "fight with them",
+    "talk to them every day",
+    "take their things without permission",
+    "blame them for my mistakes",
+    "complain about them",
+    "there for them"
+  ];
+
+  // Fill the blank on click
+  function fillBlank(element, answer) {
+    if (element.textContent.includes("_")) {
+      element.textContent = answer;
+      element.style.color = "blue";
+      element.onclick = null; // remove click event after filling
+    }
+  }
+</script>
+
+</body>
+</html>
